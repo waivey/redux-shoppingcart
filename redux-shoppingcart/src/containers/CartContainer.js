@@ -1,0 +1,1 @@
+// will connecting to redux to get the products in cart
