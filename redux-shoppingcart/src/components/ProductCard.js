@@ -1,12 +1,13 @@
 import React from 'react';
+import ProductInfo from './ProductInfo';
 
-const ProductCard = ({title, price, inventory}) => (
+
+const ProductCard = ({ product, onClickAddToCart }) => (
     <div>
-        {console.log(title)}
-        <h4>{title}</h4>
-        <p>£{price}</p>
-        <p>stock: {inventory}</p>
+        <ProductInfo title={product.title} price={product.price} quantity={product.inventory}/>
+        <button onClick={onClickAddToCart} disabled={product.inventory > 0 ? '' : 'disabled'}>{product.inventory > 0 ? 'Add to Cart' : 'Sold Out'}</button>
     </div>
+
 )
 
 export default ProductCard;
