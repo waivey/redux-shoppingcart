@@ -9,14 +9,16 @@ import { checkout } from '../actions/index';
 const CartContainer = ({ products, total }) => (
 
     <>
-    <Cart products={products} total={total} onClickCheckout={()=> checkout(products)}/>
+    
+    <Cart products={products} total={total}/>
     </>
 )
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => (console.log(getTotal(state), '<<< in mapStateToProps in CartContainer'), {
     products: getCartProducts(state),
     total: getTotal(state)
-    
 })
+
+
 
 export default connect(mapStateToProps)(CartContainer);
