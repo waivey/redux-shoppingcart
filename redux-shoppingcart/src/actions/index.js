@@ -1,4 +1,4 @@
-import { RECEIVE_PRODUCTS, ADD_TO_CART, CHECKOUT_REQUEST, CHECKOUT_FAILURE } from './ActionTypes';
+import { RECEIVE_PRODUCTS, ADD_TO_CART, CHECKOUT_REQUEST, CHECKOUT_SUCCESS } from './ActionTypes';
 import shop from '../api/shop'
 
 const receiveProducts = products => ({
@@ -32,7 +32,7 @@ export const checkout = products => (dispatch, getState) => {
     })
     shop.buyProducts(products, () => {
         dispatch({
-            type: CHECKOUT_FAILURE,
+            type: CHECKOUT_SUCCESS,
             cart
         })
     })

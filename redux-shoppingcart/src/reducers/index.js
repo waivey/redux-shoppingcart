@@ -15,7 +15,6 @@ export const getTotal = state => {
 }
 
 export const getCartProducts = state => {
-    
     return getAddedIds(state).map(id => ({
         ...getProduct(state, id),
         quantity: getQuantity(state, id)

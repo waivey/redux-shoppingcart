@@ -6,19 +6,18 @@ import { connect } from 'react-redux'
 import { getCartProducts, getTotal } from '../reducers';
 import { checkout } from '../actions/index';
 
-const CartContainer = ({ products, total }) => (
+const CartContainer = ({ products, total, checkout }) => (
 
     <>
-    
-    <Cart products={products} total={total}/>
+    <Cart products={products} total={total} onClickCheckOut={() => checkout(products)}/>
     </>
 )
 
-const mapStateToProps = state => (console.log(getTotal(state), '<<< in mapStateToProps in CartContainer'), {
+const mapStateToProps = state => ({
     products: getCartProducts(state),
     total: getTotal(state)
 })
 
 
 
-export default connect(mapStateToProps)(CartContainer);
+export default connect(mapStateToProps, { checkout })(CartContainer);
